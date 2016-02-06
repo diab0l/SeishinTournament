@@ -1,7 +1,5 @@
-define(["text!./upcoming-fights.html"], function(view) {
+define(["text!./overview.upcoming-fights.html"], function(view) {
   function init() {
-    //var vm = new UpcomingFightsViewModel();
-
     window.setInterval(function () {
       $(".time-now")
         .text("Current time: " + new moment().format("HH:mm:ss G\\MTZ"));

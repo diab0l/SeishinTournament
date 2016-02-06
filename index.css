@@ -1,0 +1,46 @@
+table {
+  border-collapse: collapse;
+}
+
+th {
+  padding-bottom: 5px;
+}
+
+td, th {
+  padding-right: 10px;
+}
+
+td~td, th~th {
+  padding-left: 10px;
+}
+
+tbody > tr:first-child > td {
+}
+
+td.time {
+  background: lightblue;
+}
+
+td.name, td.name2 {
+  background: lightgreen;
+}
+
+td.vs {
+  background: salmon;
+}
+
+td.class {
+  background: cyan;
+}
+
+section {
+  margin-left: 10px;
+}
+
+section > :not(h2) {
+  margin-left: 10px;
+}
+
+section > :not(h2) > :not(h3) {
+  margin-left: 10px;
+}
