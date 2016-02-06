@@ -3,54 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Seishin Tournament</title>
-    <style>
-      table {
-        border-collapse: collapse;
-      }
-
-      th {
-        padding-bottom: 5px;
-      }
-
-      td, th {
-        padding-right: 10px;
-      }
-
-      td~td, th~th {
-        padding-left: 10px;
-      }
-
-      tbody > tr:first-child > td {
-      }
-
-      td.time {
-        background: lightblue;
-      }
-
-      td.name, td.name2 {
-        background: lightgreen;
-      }
-
-      td.vs {
-        background: salmon;
-      }
-
-      td.class {
-        background: cyan;
-      }
-
-      section {
-        margin-left: 10px;
-      }
-
-      section > :not(h2) {
-        margin-left: 10px;
-      }
-
-      section > :not(h2) > :not(h3) {
-        margin-left: 10px;
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="index.css" />
     <script src="lib/jquery/jquery.js"></script>
     <script src="lib/moment/moment.js"></script>
     <script src="lib/knockout.js/knockout.debug.js"></script>
@@ -60,56 +13,8 @@
   <body>
     <h1>Kyokushin - German Open</h1>
     <section id="main"></section>
-
     <script>
       require(['index.js']);
     </script>
-
-    <section class="tournament-info">
-      <h2>Kyokushin - German Open</h2>
-      <table>
-        <tr>
-          <td>Date</td>
-          <td>2017-06-01 to 2017-06-03</td>
-        </tr>
-        <tr>
-          <td>Place</td>
-          <td>Berlin</td>
-        </tr>
-      </table>
-    </section>
-    <section class="mat-detail">
-      <h2>Mat 1</h2>
-    </section>
-    <section class="fighter-detail">
-      <h2>John Smith</h2>
-      <h3>Bio</h3>
-      <table>
-        <tr>
-          <td>Age</td>
-          <td>24</td>
-        </tr>
-        <tr>
-          <td>Dojo</td>
-          <td>Foo Dojo, Berlin</td>
-        </tr>
-        <tr>
-          <td>Belt</td>
-          <td>4. Kyu</td>
-        </tr>
-      </table>
-      <h3>Record</h3>
-      <span>2 Wins (1 KO), 3 Losses</span>
-    </section>
-    <section class="dojo-detail">
-      <h2>Seishin Dojo, Berlin</h2>
-      <h3>Info</h3>
-      <table>
-        <tr>
-          <td>Address</td>
-          <td>Foo Street 1, 12345 Berlin</td>
-        </tr>
-      </table>
-    </section>
   </body>
 </html>
