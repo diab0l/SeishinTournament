@@ -1,5 +1,74 @@
-'use strict';
+define(["text!./html"], function(view) {
+  function upcomingFights() {
+    var that = this;
+    var tickIntervalId = null;
 
-define(function() {
+    this.input = {
+      mats: [
+        {
+          name: "Mat 1",
+          fights: [
+            {
+              startTime: "06:00",
+              fighter1: { fullName: "John Smith" },
+              fighter2: { fullName: "Max Mustermann" },
+              class: { name: "Men - Welter Weight Masters" }
+            },
+            {
+              startTime: "08:00",
+              fighter1: { fullName: "Somebody" },
+              fighter2: { fullName: "Anybody" },
+              class: { name: "Men - Welter Weight Masters" }
+            }
+          ]
+        },
+        {
+          name: "Mat 2",
+          fights: [
+            {
+              startTime: "12:00",
+              fighter1: { fullName: "John Smith" },
+              fighter2: { fullName: "Somebody Else" },
+              class: { name: "Men - Welter Weight Masters" }
+            }
+          ]
+        }
+      ],
+      now: function(noWrap) {
+        var now = new moment().format("HH:mm:ss G\\MTZ");
 
+        return noWrap ?
+               now :
+               function(text, render) {
+                 return "<span class='now'>" + now + "</span>";
+               };
+      }
+    };
+
+    this.renderInto = function(target) {
+      var output = Mustache.render(view, that.input);
+
+      target.html(output);
+
+      that.bind();
+    }
+
+    this.bind = function() {
+      if(tickIntervalId != null) {
+        window.clearInterval(tickIntervalId);
+      }
+
+      tickIntervalId = window.setInterval(function () {
+        $(".upcoming-fights .now")
+          .text(that.input.now(true));
+      }, 1000);
+    }
+
+    this.unbind = function() {
+      window.clearInterval(tickIntervalId);
+      tickIntervalId = null;
+    }
+  }
+
+  return upcomingFights;
 });

@@ -1,0 +1,29 @@
+{
+  "name": "seishin-tournament",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diab0l/SeishinTournament.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/diab0l/SeishinTournament/issues"
+  },
+  "homepage": "https://github.com/diab0l/SeishinTournament#readme",
+  "dependencies": {
+    "jquery": "^2.2.0",
+    "moment": "^2.11.2",
+    "mustache": "^2.2.1",
+    "requirejs": "^2.1.22",
+    "requirejs-text": "^2.0.12"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  }
+}

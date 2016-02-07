@@ -1,8 +1,13 @@
-define(['components/overview.upcoming-fights.js'],
-  function(upcomingFights) {
+define(['components/overview/js?'],
+  function(Overview) {
 
   $(function() {
     var main = $("#main");
-    main.html(upcomingFights());
+    var overview = new Overview();
+
+    overview.renderInto(main);
+
+    //main.html(overview.render());
+    //overview.bind();
   });
 });
