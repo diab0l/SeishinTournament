@@ -2,7 +2,7 @@
   "name": "seishin-tournament",
   "version": "0.0.1",
   "description": "",
-  "main": "index.html",
+  "main": "dist/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,20 +10,24 @@
     "type": "git",
     "url": "git+https://github.com/diab0l/SeishinTournament.git"
   },
-  "author": "",
+  "author": "Marian Stramm",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/diab0l/SeishinTournament/issues"
   },
   "homepage": "https://github.com/diab0l/SeishinTournament#readme",
   "dependencies": {
+    "babel-preset-react": "^6.5.0",
     "jquery": "^2.2.0",
     "moment": "^2.11.2",
     "mustache": "^2.2.1",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
     "requirejs": "^2.1.22",
     "requirejs-text": "^2.0.12"
   },
   "devDependencies": {
-    "gulp": "^3.9.0"
+    "gulp": "^3.9.0",
+    "webpack": "^1.12.14"
   }
 }
