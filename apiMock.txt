@@ -1,0 +1,72 @@
+User
+
+Tournament
+  Get a list of all tournaments
+  GET /tournaments
+    Result
+      List<Tournament>
+
+  Get details about a specific tournament
+  GET /tournaments/{tid}
+    Parameters
+      tid: key of the tournament
+    Result
+      Tournament
+
+  Get the list of fighters for a specific tournament
+  GET /tournaments/{tid}/fighters
+    Parameters
+      tid: key of the tournament
+    Result
+      List<Fighter>
+
+  Add a fighter to a tournament
+  PUT /tournaments/{tid}/fighters/{fid}
+    Parameters
+      tid: key of the tournament
+      fid: key of the fighter
+
+  Update participation information for a tournament's fighter
+  PATCH /tournaments/{tid}/fighters/{fid}
+    Parameters
+      tid: key of the tournament
+      fid: key of the fighter
+    Body
+      { payed: boolean; }
+
+Fighter
+  Get details about a fighter
+  GET /fighter/{id}
+    Parameters
+      id: key of the fighter
+    Result
+      Fighter
+
+Fight
+  Gets the list of upcoming fights for a fighter
+  GET /fights/by-fighter/{id}
+    Parameters
+      id: key of the fighter
+    Result
+      List<Fight>
+
+  Gets the list of upcoming fights on a mat
+  GET /fights/by-mat/{id}
+    Parameters
+      id: key of the mat
+    Result
+      List<Fight>
+
+  Gets the list of upcoming fights in a tournament
+  GET /fights/by-tournament/{id}
+    Parameters
+      id: key of the tournament
+    Result
+      List<Fight>
+
+  Updates the result of a fight
+  PUT /fight/{id}/result
+    Parameters
+      id: key of the tournament
+    Result
+      [ <id of fighter>: 'win' | 'lose' | 'disqualification', ... ]

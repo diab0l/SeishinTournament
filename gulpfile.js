@@ -1,13 +1,8 @@
 var gulp = require('gulp');
-var webpack = require('webpack-stream');
 
 gulp.task('copy-src', function() {
     gulp.src('src/**')
         .pipe(gulp.dest('dist/'));
-});
-
-gulp.task('default', ['copy-src'], function() {
-
 });
 
 gulp.task('update-libs', function() {
