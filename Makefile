@@ -1,7 +1,9 @@
-TSC = "./node_modules/typescript/bin/tsc"
-TSCFLAGS = --experimentalDecorators
+TSC = "./node_modules/.bin/tsc"
+TSCFLAGS = --experimentalDecorators -m amd
 
-UGLIFY = "./node_modules/uglify-js/bin/uglifyjs"
+UGLIFY = "./node_modules/.bin/uglifyjs"
+
+HTTPSERVER = "./node_modules/.bin/http-server"
 
 SrcDir = src
 BuildDir = build
@@ -34,7 +36,8 @@ npm-deps:
 		npm install; \
 	fi
 
-#run:	dist
+run:	dist
+	$(HTTPSERVER) dist/
 
 dist: build dist-pre merge-to-dist
 
@@ -72,7 +75,7 @@ merge-to-dist:
 $(BuildDir)/%.js: $(SrcDir)/%.ts
 	echo "Compiling $< to $@.."
 	mkdir -p $(dir $@)
-	$(TSC) $(TSCFLAGS) --out $@ $<
+	$(TSC) $(TSCFLAGS) --outDir $(dir $@) $<
 
 %.min.js: %.js
 	echo "Minifying $< to $@.."

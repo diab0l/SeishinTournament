@@ -28,5 +28,6 @@
     "knockout": "3.4.0"
   },
   "devDependencies": {
+    "http-server": "0.9.0"
   }
 }
