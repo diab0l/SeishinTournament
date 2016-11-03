@@ -17,17 +17,16 @@
   },
   "homepage": "https://github.com/diab0l/SeishinTournament#readme",
   "dependencies": {
-    "babel-preset-react": "^6.5.0",
-    "jquery": "^2.2.0",
-    "moment": "^2.11.2",
-    "mustache": "^2.2.1",
-    "react": "^0.14.7",
-    "react-dom": "^0.14.7",
-    "requirejs": "^2.1.22",
-    "requirejs-text": "^2.0.12"
+    "jquery": "3.1.1",
+    "moment": "2.15.2",
+    "mustache": "2.2.1",
+    "requirejs": "2.3.2",
+    "requirejs-text": "2.0.12",
+    "gulp": "3.9.1",
+    "typescript": "2.0.6",
+    "uglify-js": "2.7.4",
+    "knockout": "3.4.0"
   },
   "devDependencies": {
-    "gulp": "^3.9.0",
-    "typescript": "^1.8.10"
   }
 }

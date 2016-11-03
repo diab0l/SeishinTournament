@@ -1,0 +1,6 @@
+Build
+- add Makefile target which copies the libs from node_modules/ to dist/
+- rip out gulpfile
+
+- add a mini server to be called upon 'run'
+- find a way to switch between .min.js and .js at runtime 

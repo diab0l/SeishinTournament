@@ -1,5 +1,7 @@
-TSC = tsc
+TSC = "./node_modules/typescript/bin/tsc"
 TSCFLAGS = --experimentalDecorators
+
+UGLIFY = "./node_modules/uglify-js/bin/uglifyjs"
 
 SrcDir = src
 BuildDir = build
@@ -22,9 +24,15 @@ MinifyInputs := $(JsFiles) $(TsTargets)
 MinifyTargets := $(patsubst $(SrcDir)/%,$(BuildDir)/%,$(MinifyInputs:%.js=%.min.js))
 
 .SILENT:
-.PHONY: all clean dist build build-pre dist-pre merge-to-dist
+.PHONY: all clean dist build build-pre dist-pre merge-to-dist copy-libs
 
-all:	build
+all:	npm-deps dist
+
+npm-deps:
+	if [ \( ! -e ""$(TSC) \) -o \( ! -e ""$(UGLIFY) \) ]; then \
+		echo Running npm install..; \
+		npm install; \
+	fi
 
 #run:	dist
 
@@ -33,6 +41,9 @@ dist: build dist-pre merge-to-dist
 clean:
 	rm -rf build
 	rm -rf dist
+
+squeaky-clean: clean
+	rm -rf node_modules
 
 debug:
 	#echo $(MinifyInputs)
@@ -55,7 +66,8 @@ dist-pre: $(VerbatimFiles)
 	echo Copying verbatim files
 	$(VerbatimFilesCmd) | sed 's/^src\///' | xargs -I file bash -c "if [ -d \"src/file\" ]; then mkdir -p \"dist/file\"; else cp \"src/file\" \"dist/file\"; fi"
 
-#$(TsTargets): $(TsInputs)
+merge-to-dist:
+	cp -r build/. dist
 
 $(BuildDir)/%.js: $(SrcDir)/%.ts
 	echo "Compiling $< to $@.."
@@ -64,12 +76,9 @@ $(BuildDir)/%.js: $(SrcDir)/%.ts
 
 %.min.js: %.js
 	echo "Minifying $< to $@.."
-	uglifyjs -o $@ $<
+	$(UGLIFY) -o $@ $<
 
 $(BuildDir)/%.min.js: $(SrcDir)/%.js
 	echo "Minifying $< to $@.."
 	mkdir -p $(dir $@)
-	uglifyjs -o $@ $<
-
-merge-to-dist:
-	cp -r build/. dist
+	$(UGLIFY) -o $@ $<
