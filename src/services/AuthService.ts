@@ -1,3 +1,5 @@
+/// <reference path="../../typings/index.d.ts" />
+
 namespace Seishin.Services {
   export class AuthService {
     public static authenticate(username: string, password: string): JQueryPromise<string> {
